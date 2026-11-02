@@ -1,0 +1,218 @@
+{
+  "app_version": "1.0.0",
+  "generated_at": "2026-10-30T08:55:25-04:00",
+  "repo": {
+    "full_name": "expressjs/express",
+    "web_url": "https://github.com/expressjs/express",
+    "description": "Fast, unopinionated, minimalist web framework for node.",
+    "stars": 69579,
+    "language": "JavaScript",
+    "default_branch": "master",
+    "archived": false,
+    "private": false,
+    "pushed_at": "2026-10-27T13:54:02Z",
+    "license": "MIT"
+  },
+  "languages": [
+    "javascript-typescript"
+  ],
+  "score": 89,
+  "band": "Secure",
+  "band_colour": "#22c55e",
+  "verdict": "SECURE",
+  "verdict_reason": "The weighted score is 89/100, above the 85 pass mark, and no critical-severity findings were reported.",
+  "secure_threshold": 85,
+  "explanation": "Every finding subtracts points from a perfect 100. Dependency CVEs cost 12 (critical), 6 (high), 1.5 (medium) or 0.3 (low); committed secrets cost the most (15/10/5/1); infrastructure misconfigurations cost 8/4/1/0.2; CodeQL security findings are weighted by the rule's CVSS-style security-severity score (0-10). Each category is capped (dependencies 45, secrets 25, IaC 10, code 40) so one noisy scanner cannot bury the result. A score of 85+ with zero critical findings is reported as secure.",
+  "penalties": {
+    "vulnerability": 0.0,
+    "secret": 0.0,
+    "misconfiguration": 0.0,
+    "code": 11.0,
+    "code-quality": 0.0
+  },
+  "raw_penalties": {
+    "vulnerability": 0.0,
+    "secret": 0.0,
+    "misconfiguration": 0.0,
+    "code": 11.0,
+    "code-quality": 0.0
+  },
+  "caps": {
+    "vulnerability": 45.0,
+    "secret": 25.0,
+    "misconfiguration": 10.0,
+    "code": 40.0,
+    "code-quality": 6.0
+  },
+  "counts": {
+    "vulnerability": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "unknown": 0
+    },
+    "secret": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "unknown": 0
+    },
+    "misconfiguration": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "unknown": 0
+    },
+    "code": {
+      "critical": 0,
+      "high": 1,
+      "medium": 4,
+      "low": 0,
+      "unknown": 0
+    },
+    "code-quality": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "unknown": 0
+    }
+  },
+  "category_labels": {
+    "vulnerability": "Dependency vulnerabilities",
+    "secret": "Committed secrets",
+    "misconfiguration": "IaC / container misconfigurations",
+    "code": "CodeQL security findings",
+    "code-quality": "CodeQL maintainability findings"
+  },
+  "category_why": {
+    "vulnerability": "a library you ship has a known, publicly documented flaw",
+    "secret": "a credential appears to be committed in plain text",
+    "misconfiguration": "deployment or infrastructure config weakens the runtime",
+    "code": "CodeQL traced attacker-controlled data into a dangerous operation",
+    "code-quality": "maintainability issue that makes future bugs more likely"
+  },
+  "totals": {
+    "findings": 5,
+    "critical": 0,
+    "high": 1,
+    "medium": 4,
+    "low": 0,
+    "unknown": 0
+  },
+  "greatest_risks": [
+    {
+      "category": "code",
+      "rule_id": "js/clear-text-cookie",
+      "title": "Clear text transmission of sensitive cookie",
+      "severity": "medium",
+      "count": 4,
+      "penalty": 6.0,
+      "detail": "Sensitive cookie sent without enforcing SSL encryption.",
+      "reference": "https://codeql.github.com/codeql-query-help/js/clear-text-cookie/",
+      "locations": [
+        "examples/auth/index.js:22",
+        "examples/mvc/index.js:40",
+        "examples/session/index.js:16"
+      ],
+      "why": "CodeQL traced attacker-controlled data into a dangerous operation"
+    },
+    {
+      "category": "code",
+      "rule_id": "js/clear-text-logging",
+      "title": "Clear-text logging of sensitive information",
+      "severity": "high",
+      "count": 1,
+      "penalty": 5.0,
+      "detail": "This logs sensitive data returned by [an access to password](1) as clear text.",
+      "reference": "https://codeql.github.com/codeql-query-help/js/clear-text-logging/",
+      "locations": [
+        "examples/auth/index.js:61"
+      ],
+      "why": "CodeQL traced attacker-controlled data into a dangerous operation"
+    }
+  ],
+  "scanner_status": {
+    "trivy": {
+      "status": "ok",
+      "duration_seconds": 0.8,
+      "details": [
+        "trivy fs on express-master"
+      ]
+    },
+    "codeql": {
+      "status": "ok",
+      "duration_seconds": 44.8,
+      "details": [
+        "CodeQL javascript-typescript: database + queries completed."
+      ]
+    }
+  },
+  "warnings": [],
+  "duration_seconds": 47.0,
+  "findings": [
+    {
+      "source": "codeql",
+      "category": "code",
+      "severity": "high",
+      "rule_id": "js/clear-text-logging",
+      "title": "Clear-text logging of sensitive information",
+      "location": "examples/auth/index.js:61",
+      "detail": "This logs sensitive data returned by [an access to password](1) as clear text.",
+      "reference": "https://codeql.github.com/codeql-query-help/js/clear-text-logging/",
+      "weight": 5.0
+    },
+    {
+      "source": "codeql",
+      "category": "code",
+      "severity": "medium",
+      "rule_id": "js/clear-text-cookie",
+      "title": "Clear text transmission of sensitive cookie",
+      "location": "examples/auth/index.js:22",
+      "detail": "Sensitive cookie sent without enforcing SSL encryption.",
+      "reference": "https://codeql.github.com/codeql-query-help/js/clear-text-cookie/",
+      "weight": 1.5
+    },
+    {
+      "source": "codeql",
+      "category": "code",
+      "severity": "medium",
+      "rule_id": "js/clear-text-cookie",
+      "title": "Clear text transmission of sensitive cookie",
+      "location": "examples/mvc/index.js:40",
+      "detail": "Sensitive cookie sent without enforcing SSL encryption.",
+      "reference": "https://codeql.github.com/codeql-query-help/js/clear-text-cookie/",
+      "weight": 1.5
+    },
+    {
+      "source": "codeql",
+      "category": "code",
+      "severity": "medium",
+      "rule_id": "js/clear-text-cookie",
+      "title": "Clear text transmission of sensitive cookie",
+      "location": "examples/session/index.js:16",
+      "detail": "Sensitive cookie sent without enforcing SSL encryption.",
+      "reference": "https://codeql.github.com/codeql-query-help/js/clear-text-cookie/",
+      "weight": 1.5
+    },
+    {
+      "source": "codeql",
+      "category": "code",
+      "severity": "medium",
+      "rule_id": "js/clear-text-cookie",
+      "title": "Clear text transmission of sensitive cookie",
+      "location": "examples/session/redis.js:20",
+      "detail": "Sensitive cookie sent without enforcing SSL encryption.",
+      "reference": "https://codeql.github.com/codeql-query-help/js/clear-text-cookie/",
+      "weight": 1.5
+    }
+  ],
+  "language_file_counts": {
+    "javascript-typescript": 142
+  },
+  "artifacts_dir": "C:\\Users\\cyber\\.repo-security-scorer\\work\\expressjs-express-20261030-085438\\artifacts",
+  "workdir": "C:\\Users\\cyber\\.repo-security-scorer\\work\\expressjs-express-20261030-085438"
+}
